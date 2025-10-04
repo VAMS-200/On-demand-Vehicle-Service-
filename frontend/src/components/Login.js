@@ -20,7 +20,7 @@ function Login() {
     try {
       console.log("Sending login request with:", formData);
 
-      const res = await axios.post("http://localhost:5001/auth/login", formData);
+      const res = await axios.post("https://vehicle-service-kfie.onrender.com/auth/login", formData);
       console.log("Frontend received:", res.data);
 
       if (res.data.success && res.data.user) {
@@ -33,7 +33,7 @@ function Login() {
     navigator.geolocation.getCurrentPosition(
       async (pos) => {
         try {
-          await axios.put(`http://localhost:5001/auth/update-location/${res.data.user._id}`, {
+          await axios.put(`https://vehicle-service-kfie.onrender.com/auth/update-location/${res.data.user._id}`, {
             latitude: pos.coords.latitude,
             longitude: pos.coords.longitude,
           });
@@ -62,7 +62,7 @@ function Login() {
               localStorage.setItem("serviceManLocation", JSON.stringify(coords));
 
               // Optional: save in backend
-              axios.post("http://localhost:5001/auth/save-location", {
+              axios.post("https://vehicle-service-kfie.onrender.com/auth/save-location", {
                 serviceManId: user._id,
                 serviceManLat: coords.lat,
                 serviceManLng: coords.lng,
