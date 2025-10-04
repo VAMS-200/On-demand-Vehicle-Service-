@@ -11,7 +11,7 @@ const ServiceCompletedTasks = () => {
   const fetchCompletedTasks = async () => {
     try {
       const res = await axios.get(
-  `http://localhost:5001/request/completed-tasks/${user._id}`
+  `https://vehicle-service-kfie.onrender.com/request/completed-tasks/${user._id}`
 );
 
       setCompletedTasks(res.data);
