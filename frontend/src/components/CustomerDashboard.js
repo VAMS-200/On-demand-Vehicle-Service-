@@ -89,7 +89,7 @@ function CustomerDashboard() {
   const fetchRequest = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5001/request/customer/${user._id}`
+        `https://vehicle-service-kfie.onrender.com/request/customer/${user._id}`
       );
       if (res.data.length > 0) {
         setRequest(res.data[0]); // latest request
@@ -125,7 +125,7 @@ useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       async (pos) => {
         try {
-          const res = await axios.post("http://localhost:5001/request/create", {
+          const res = await axios.post("https://vehicle-service-kfie.onrender.com/request/create", {
             customer: user._id,
             vehicleType,
             description,
@@ -161,7 +161,7 @@ useEffect(() => {
     if (!rating) return alert("Please provide a rating before submitting!");
 
     try {
-      await axios.put(`http://localhost:5001/request/complete/${request._id}`, {
+      await axios.put(`https://vehicle-service-kfie.onrender.com/request/complete/${request._id}`, {
         rating,
         feedback,
       });
