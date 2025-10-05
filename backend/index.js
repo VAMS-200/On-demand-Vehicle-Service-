@@ -20,3 +20,15 @@ app.use("/auth", require("./routes/auth"));
 app.use("/request", require("./routes/request"));
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const path = require("path");
+
+// ✅ Serve frontend in production
+if (process.env.NODE_ENV === "production") {
+  const frontendPath = path.join(__dirname, "../frontend/build");
+  app.use(express.static(frontendPath));
+
+  // Catch-all route for React Router
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(frontendPath, "index.html"));
+  });
+}
