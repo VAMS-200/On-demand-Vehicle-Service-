@@ -1,34 +1,38 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-PORT=5001;
+const path = require("path");
+
 const app = express();
+const PORT = process.env.PORT || 5001;
 
-
-app.use(cors()); // allow frontend requests
+// ✅ Middleware
+app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb+srv://xyz:123@vehicle.mjfjfb5.mongodb.net/?retryWrites=true&w=majority&appName=vehicle", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log("MongoDB connected"))
-.catch((err) => console.error("MongoDB connection error:", err));
+// ✅ MongoDB connection
+mongoose
+  .connect("mongodb+srv://xyz:123@vehicle.mjfjfb5.mongodb.net/?retryWrites=true&w=majority&appName=vehicle", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("✅ MongoDB connected"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
 
-// Routes
+// ✅ API Routes
 app.use("/auth", require("./routes/auth"));
 app.use("/request", require("./routes/request"));
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-const path = require("path");
-
-// ✅ Serve frontend in production
+// ✅ Serve frontend (React) in production
 if (process.env.NODE_ENV === "production") {
   const frontendPath = path.join(__dirname, "../frontend/build");
   app.use(express.static(frontendPath));
 
-  // Catch-all route for React Router
+  // ✅ All non-API routes → React index.html
   app.get("*", (req, res) => {
     res.sendFile(path.join(frontendPath, "index.html"));
   });
 }
+
+// ✅ Start server (after routes are set)
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
