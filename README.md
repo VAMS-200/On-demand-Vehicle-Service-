@@ -1,4 +1,4 @@
-On demand Vehicle Service app is a MERN full-stack web application that connects customers and service providers for efficient vehicle maintenance and repair management.
+On demand Vehicle Service is a MERN full-stack web application that connects customers and service providers for efficient vehicle maintenance and repair management.
 It allows customers to book vehicle service requests, track progress, provide feedback, and view service history — while service providers can manage active requests, update statuses, and close completed jobs.
 
 🧩 Features
