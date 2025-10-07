@@ -1,6 +1,6 @@
 Vehicle Service Management System
 Overview
-The Vehicle Service Management System is a full-stack web application that connects customers and service providers for efficient vehicle maintenance and repair management.
+The Vehicle Service Management System is a MERN full-stack web application that connects customers and service providers for efficient vehicle maintenance and repair management.
 It allows customers to book vehicle service requests, track progress, provide feedback, and view service history — while service providers can manage active requests, update statuses, and close completed jobs.
 
 🧩 Features
