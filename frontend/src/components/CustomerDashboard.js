@@ -11,7 +11,7 @@ import {
 } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-
+import { LogOut } from "lucide-react";
 
 // ✅ Blue Customer Icon
 const customerIcon = new L.Icon({
@@ -275,9 +275,10 @@ useEffect(() => {
 <button
   onClick={handleLogout}
   title="Logout"
-  className="fixed top-4 right-4 z-50 bg-blue-600 hover:bg-red-700 text-white p-3 rounded-full shadow-lg transition-transform transform hover:scale-110"
+  className="fixed top-4 right-4 z-50 flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-red-600 hover:to-red-700 text-white font-semibold px-4 py-2 rounded-full shadow-lg transition-transform transform hover:scale-110"
 >
-  <Power size={22} />
+  <LogOut size={20} />
+  Logout
 </button>
 
 
