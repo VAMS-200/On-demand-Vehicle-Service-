@@ -24,7 +24,7 @@ function Register() {
       console.log("Sending registration request:", formData);
 
       const res = await axios.post(
-        "http://localhost:5001/auth/register",
+        "https://vehicle-service-kfie.onrender.com/auth/register",
         formData
       );
 
