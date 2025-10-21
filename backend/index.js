@@ -12,7 +12,7 @@ app.use(express.json());
 
 // ✅ MongoDB connection
 mongoose
-  .connect(MONGO_URI, {
+  .connect("mongodb+srv://xyz:123@vehicle.mjfjfb5.mongodb.net/?retryWrites=true&w=majority&appName=vehicle", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
